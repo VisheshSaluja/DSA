@@ -1,15 +1,23 @@
 class Solution {
 public:
 
-    bool dfs(vector<vector<int>>& edges, int source, int destination, vector<int>& visited){
+    bool bfs(vector<vector<int>>& edges, int source, int destination, vector<int>& visited){
+        queue<int> q;
+        q.push(source);
         
         visited[source] = 1;
 
 
-        for(auto nbr: edges[source]){
-            if(!visited[nbr]){
-                dfs(edges, nbr, destination, visited);
+        while(!q.empty()){
+            int f = q.front();
+            q.pop();
+            for(auto nbr: edges[f]){
+                if(!visited[nbr]){
+                    visited[nbr] = 1;
+                    q.push(nbr);
+                }
             }
+
         }
         return visited[destination];
     }
@@ -23,7 +31,7 @@ public:
             adj[edge[1]].push_back(edge[0]);
         }
 
-        return dfs(adj, source, destination, visited);
+        return bfs(adj, source, destination, visited);
 
 
     }
