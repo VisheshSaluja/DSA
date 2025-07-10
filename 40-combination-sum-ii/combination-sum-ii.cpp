@@ -2,11 +2,11 @@ class Solution {
 public:
 
     
-    set<vector<int>> ans;
-    void helper(vector<int>& nums, int target, int i, set<vector<int>> &ans, vector<int> &v){
+    vector<vector<int>> ans;
+    void helper(vector<int>& nums, int target, int i, vector<vector<int>> &ans, vector<int> &v){
 
         if(target==0){
-            ans.insert(v);
+            ans.push_back(v);
             return;
         }
 
