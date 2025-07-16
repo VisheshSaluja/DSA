@@ -7,7 +7,7 @@ public:
 
 
         while(j<prices.size()){
-            if(prices[i]<prices[j])
+            if(prices[i]<=prices[j])
             {
                 
                 int profit = prices[j]-prices[i];
